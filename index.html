@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINK PARA O CSS DO BS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- MEU CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Brain Help</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR DO SITE -->
+
+    <header class="container-fluid  sticky-top">
+        <div class="row">
+
+            <nav class="navbar navbar-expand-lg bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="./assets/image/brainlinkEdit.png" class="img-fluid rounded" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white fs-3" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fs-3" href="#">Sobre</a>
+                            </li>
+                        </ul>
+                        <a href=""><i class="bi bi-person-circle me-4" style="font-size: 3rem; color: rgb(255, 255, 255)"></i></a>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+
+
+
+    <!-- CORPO DO SITE -->
+
+    <main class="container-fluid mt-5 ">
+
+        <div class="row justify-content-around align-items-center mt-5">
+
+            <div class="col-12 col-sm-6 col-md-6 p-4">
+
+                <p class="animacao">Anote sua ideias</p>
+                <p class="animacao2">Programe-se durante o dia</p>
+                <p class="animacao3">Acompanhe sua evolução</p>
+
+
+            </div>
+
+
+
+            <div class="col-12 col-sm-8 col-md-4 col-lg-4 p-4">
+                <figure class="">
+                    <img src="./assets/image/brainHappy.png" class="img-fluid " alt="">
+                </figure>
+                <div class="mt-2">
+                    <p class="mw-100 bg-primary-subtle text-dark p-2 border border-success border-opacity-25 rounded text text-center fw-light d-none d-md-block">
+                        Precisa de uma ajudinha no dia-a-dia para anotar as ideias ou informações que passa no seu tão poderoso cérebro? Então conte conosco! A Brain Help está aqui para te ajudar.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-6 p-4">
+                <figure class="">
+                    <img src="./assets/image/workBrain.png" class="img-fluid " alt="">
+                </figure>
+
+            </div>
+            <div class="col-12 col-sm-4 col-md-4 d-flex justify-content-center align-items-center ">
+                <div class="card border-opacity-50 border-3 border-info p-2" style="width: 18rem;">
+                    <img src="./assets/image/brainlogo.png" class="card-img-top p-2 " alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title mb-2">Entre na sua conta</h5>
+                        <form id="userLogin">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Permanecer logo</label>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary d-block">Entrar</button>
+                            </div>
+                            <p class="pb-lg-2" style="color: #393f81;">Não possui conta?
+                                <a href="#!" style="color: #393f81;" data-bs-toggle="modal" data-bs-target="#modalNewUser">Crie uma agora!</a>
+                            </p>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+
+    <!-- MODAL PARA CADASTRAR NOVO USUARIO -->
+
+    <div class="modal" id="modalNewUser" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastrar Contato</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar Modal"></button>
+                </div>
+                <form class="needs-validation" id="formNewUser" novalidate>
+                    <div class="modal-body">
+                        <!-- Formulario de Cadastro -->
+                        <div class="mb-3">
+                            <label for="nameUser" class="form-label">Nome:</label>
+
+                            <input type="text" name="nameUser" id="nameUser" class="form-control" required minlength="3">
+
+                            <div class="invalid-feedback">
+                                Digite um nome válido. No mínimo 3 caracteres.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mailUser" class="form-label">E-Mail para Login</label>
+
+                            <input type="email" name="mailUser" id="mailUser" class="form-control" required minlength="5" placeholder="exemplo@legal.com">
+
+                            <div class="invalid-feedback">
+                                Digite um e-mail válido. No mínimo 5 caracteres.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="passwordUser" class="form-label">Senha</label>
+
+                            <input type="password" name="passwordUser" id="passwordUser" class="form-control" required minlength="4">
+
+                            <div class="invalid-feedback">
+                                Digite uma senha de no minimo 4 caracteres.
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JS DO BS -->
+
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- MEU JS-->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
