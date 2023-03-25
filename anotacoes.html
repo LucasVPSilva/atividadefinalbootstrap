@@ -32,7 +32,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-white fs-3" aria-current="page" href="#">Home</a>
+                                <a class="nav-link text-white fs-3" aria-current="page" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white fs-3" href="#">Sobre</a>
@@ -51,10 +51,10 @@
 
     <!-- CORPO DO SITE -->
     <main class="container">
-        <h1 class="mt-4">Salve, edita e conclua suas <span class="animacao4 ms-1">IDEIAS</span><span class="animacao5 ms-1">PENSAMENTOS</span></h1>
+        <h1 class="mt-4">Salve, edita e conclua suas <span class="animacao4 ms-2">IDEIAS</span><span class="animacao5 ms-2">PENSAMENTOS</span></h1>
         <hr>
 
-        <section class="row g-3" id="list-contacts">
+        <section class="row g-3" id="list-anotacoes">
 
 
 
@@ -63,13 +63,23 @@
     </main>
 
 
+
+
+
+
+
+
+
+
+
+
     <button class="btn btn-primary position-fixed 
     float-button rounded-circle " data-bs-toggle="modal" data-bs-target="#modal-cadastro">
         <i class="bi bi-plus-lg"></i>
     </button>
 
 
-    <!-- MODAL CADASTRAR -->
+    <!-- MODAL CADASTRAR IDEIAS-->
 
     <div class="modal" id="modal-cadastro" tabindex="-1">
         <div class="modal-dialog">
@@ -78,43 +88,25 @@
                     <h5 class="modal-title">Anote suas ideias</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar Modal"></button>
                 </div>
-                <form class="needs-validation" id="form-cadastro" novalidate>
+                <form class="needs-validation" id="formAnotacoes" novalidate>
                     <div class="modal-body">
-                        <!-- Formulario de Cadastro -->
+                        <!-- Formulario de Cadastro de Ideias-->
                         <div class="mb-3">
-                            <label for="name" class="form-label">Dê um nome para ideia:</label>
-
-                            <input type="text" name="name" id="name" class="form-control" required>
-
-                            <div class="invalid-feedback">
-                                Digite um nome válido. No mínimo 3 caracteres.
-                            </div>
+                            <label for="nameIdea" class="form-label">Dê um nome para ideia:</label>
+                            <input type="text" name="nameIdea" id="nameIdea" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Descreva sua ideia:</label>
+                            <label for="descriptionIdea" class="form-label">Descreva sua ideia:</label>
 
-                            <input type="text" name="description" id="description" class="form-control" required placeholder="Ex.: (62) 99988-7766">
-
-                            <div class="invalid-feedback">
-                                Digite um telefone válido. Por favor, siga o modelo informado.
-                            </div>
+                            <input type="text" name="descriptionIdea" id="descriptionIdea" class="form-control">
 
                         </div>
                         <div class="mb-3">
-                            <label for="data" class="form-label">Dê um prazo para concluir sua ideia:</label>
-
-                            <input type="date" name="data" id="data" class="form-control" required placeholder="Ex.: (62) 99988-7766">
-
-                            <div class="invalid-feedback">
-                                Digite um telefone válido. Por favor, siga o modelo informado.
-                            </div>
+                            <label for="dataIdea" class="form-label">Dê um prazo para concluir sua ideia:</label>
+                            <input type="date" name="dataIdea" id="dataIdea" class="form-control">
 
                         </div>
-
-
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -126,17 +118,17 @@
         </div>
     </div>
 
-    <!-- MODAL APAGAR CONTATO -->
+    <!-- MODAL APAGAR IDEIA -->
 
     <div class="modal" id="modal-apagar" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Apagar Contato</h5>
+                    <h5 class="modal-title">Apagar Anotações</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar Modal"></button>
                 </div>
                 <div class="modal-body">
-                    Deseja excluir o contato?
+                    Deseja excluir sua anotação?
                 </div>
 
 
@@ -159,7 +151,7 @@
     <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- MEU JS-->
-    <script src="./js/index.js"></script>
+    <script src="./js/anotacoes.js"></script>
 </body>
 
 </html>

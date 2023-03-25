@@ -65,15 +65,20 @@ loginUser.addEventListener('submit', (ev) => {
 
     const userSave = JSON.parse(localStorage.getItem("listUsers") ?? "[]");
 
-    const usuarioCadastrado = userSave.find((usuario) => usuario.userEmail === form.emailLogin.value && usuario.senhaLogin === form.senhaLogin.value);
+    const usuarioCadastrado = userSave.find((usuario) => usuario.userEmail === loginUser.emailLogin.value && usuario.userPassword === loginUser.passwordLogin.value);
     if (!usuarioCadastrado) {
-        alert("Usuário não Localizado! Verifique e-mail ou senha!");
+        alert("Usuário não Localizado! Verifique seu e-mail ou senha!");
         form.reset();
         return;
     }
 
+    alert(`Seja bem vindo ${usuarioCadastrado.userName}`)
+
+    localStorage.setItem("usuarioAtivo", JSON.stringify(usuarioCadastrado));
+
+    window.location.href = "./anotacoes.html";
 
 
-    alert('Login')
 })
+
 
