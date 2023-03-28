@@ -51,10 +51,16 @@
 
     <!-- CORPO DO SITE -->
     <main class="container">
-        <h1 class="mt-4">Salve, edita e conclua suas <span class="animacao4 ms-2">IDEIAS</span><span class="animacao5 ms-2">PENSAMENTOS</span></h1>
-        <hr>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mt-4">Salve, edita e conclua suas
 
-        <section class="row g-3" id="list-anotacoes">
+                </h1>
+                <span class="animacao4 position-absolute fs-1">IDEIAS</span><span class="animacao5 fs-1">ANOTAÇÕES</span>
+                <hr>
+            </div>
+        </div>
+        <section class="row g-3 ms-2 mt-2" id="list-anotacoes">
 
 
 
@@ -65,87 +71,131 @@
 
 
 
-
-
-
-
-
-
-
-
-    <button class="btn btn-primary position-fixed 
-    float-button rounded-circle " data-bs-toggle="modal" data-bs-target="#modal-cadastro">
+    <button class="btn btn-primary position-fixed float-button rounded-circle" data-bs-toggle="modal" data-bs-target="#modal-cadastro">
         <i class="bi bi-plus-lg"></i>
     </button>
 
 
-    <!-- MODAL CADASTRAR IDEIAS-->
 
-    <div class="modal" id="modal-cadastro" tabindex="-1">
+    <!-- MODAL CADASTRAR ANOTAÇÃO -->
+    <div id="modal-cadastro" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Anote suas ideias</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar Modal"></button>
+                    <h5 class="modal-title">Cadastre sua Anotação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
-                <form class="needs-validation" id="formAnotacoes" novalidate>
+                <form id="form-cadastro" class="needs-validation" novalidate>
                     <div class="modal-body">
-                        <!-- Formulario de Cadastro de Ideias-->
                         <div class="mb-3">
-                            <label for="nameIdea" class="form-label">Dê um nome para ideia:</label>
-                            <input type="text" name="nameIdea" id="nameIdea" class="form-control">
-                        </div>
+                            <label for="name" class="form-label">Nome da anotação/ideia:</label>
 
-                        <div class="mb-3">
-                            <label for="descriptionIdea" class="form-label">Descreva sua ideia:</label>
+                            <input type="text" name="name" id="name" class="form-control" required minlength="3">
 
-                            <input type="text" name="descriptionIdea" id="descriptionIdea" class="form-control">
-
+                            <div class="invalid-feedback">
+                                Digite um nome válido. No mínimo 3 caracteres.
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="dataIdea" class="form-label">Dê um prazo para concluir sua ideia:</label>
-                            <input type="date" name="dataIdea" id="dataIdea" class="form-control">
+                            <label for="descreva" class="form-label">Descreva sua anotação/ideia:</label>
 
+                            <input type="text" name="descreva" id="descreva" class="form-control" required>
+                            <div class="invalid-feedback">
+                                O campo não pode ficar vazio, por gentileza descreva sua anotação.
+                            </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="data" class="form-label">Informe uma data para conclusão da sua anotação/ideia</label>
+
+                            <input type="date" name="data" id="data" class="form-control" required>
+
+                            <div class="invalid-feedback">
+                                O campo não pode ficar vazio, por gentileza informe uma data.
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
 
-    <!-- MODAL APAGAR IDEIA -->
-
-    <div class="modal" id="modal-apagar" tabindex="-1">
+    <!-- MODAL APAGAR -->
+    <div id="modal-apagar" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Apagar Anotações</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar Modal"></button>
+                    <h5 class="modal-title">Apagar Anotação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    Deseja excluir sua anotação?
+                    Você tem certeza que deseja excluir a anotação? Essa ação é permanente e não poderá ser desfeita.
                 </div>
-
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger" id="confirmar-exclusao">Sim</button>
+                    <button type="button" class="btn btn-danger" id="confirmar-exclusao">Sim</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- MODAL ATUALIZAR -->
+    <div id="modal-atualizar" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atualize sua Anotação:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form id="form-atualizar" class="needs-validation" novalidate>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome da anotação/ideia:</label>
+
+                            <input type="text" name="name" id="name-update" class="form-control" required minlength="3">
+
+                            <div class="invalid-feedback">
+                                Digite um nome válido. No mínimo 3 caracteres.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descreva" class="form-label">Descreva sua anotação/ideia:</label>
+
+                            <input type="text" name="descreva" id="descreva-update" class="form-control" required>
+
+                            <div class="invalid-feedback">
+                                O campo não pode ficar vazio, por gentileza descreva sua anotação.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="data" class="form-label">Informe uma data para conclusão da sua anotação/ideia</label>
+
+                            <input type="date" name="data" id="data-update" class="form-control" required>
+
+                            <div class="invalid-feedback">
+                                O campo não pode ficar vazio, por gentileza informe uma data.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
 
     <!-- TOAST -->
-
-    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="container-notificacao">
-
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="container-notificacao">
+        <!-- children[0] -->
     </div>
+
 
     <!-- JS DO BS -->
     <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>

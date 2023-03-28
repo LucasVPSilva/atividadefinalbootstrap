@@ -65,7 +65,7 @@
   /* ANIMACOES DA PAGINA ANOTACOES */
 
   .animacao4 {
-    position: absolute;
+  
     animation: aparecer4 4s ease-in 1s infinite;
     opacity: 0.75;
   }
@@ -78,7 +78,7 @@
 }
 
 .animacao5 {
-  position: absolute;
+
   animation: aparecer5 4s ease-in-out 2s infinite;
   opacity: 0;
 }
