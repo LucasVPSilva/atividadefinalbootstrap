@@ -49,10 +49,6 @@ formNewUser.addEventListener('submit', (ev) => {
     console.log(listUsers)
 })
 
-// SE RECARREGAR O SITE, O DOM CARREGA AS INFORMACOES DO LOCALSTORAGE:
-document.addEventListener('DOMContentLoaded', () => {
-    listUsers.forEach((contact) => addContact(contact))
-})
 
 
 

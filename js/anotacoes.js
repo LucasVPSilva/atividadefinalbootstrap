@@ -1,18 +1,43 @@
 // VERIFICAR SE USUARIO ESTA LOGADO
 
 if (localStorage.getItem('usuarioAtivo') === null) {
-    alert('Você precisa estar logado para acessar essa pagina');
+    alert('Opss! Você precisa estar logado para acessar essa página!')
     window.location.href = "./index.html";
 }
 
-//
+//// BUSCAR USUARIO LOGADO PARA ATRIBUIR O ID DELE NO ID DO RECADO
+
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioAtivo'))
+
+
 
 
 let idAtualizar = -1
 let listaAnotacao = JSON.parse(localStorage.getItem('anotacoes')) ?? [];
 
+
+// IRA VERIFICAR SE O POST DO LOCALSTORAGE POSSUI MESMO ID DO USUARIO
+
+
+const postId = listaAnotacao.filter((post) => {
+    return post.idCriador === usuarioLogado.id
+})
+
+// SE FOR IRÁ APARECER NA TELA PARA O USUARIO
+
+document.addEventListener('DOMContentLoaded', () => {
+    postId.forEach((anotacoes) => addAnotacao(anotacoes))
+})
+
+
+// FORM E MODAL DE CADASTRO E ATUALIZACAO
+
+
+
+
 const formCadastro = document.getElementById('form-cadastro')
 const formAtualizar = document.getElementById('form-atualizar')
+const modalSair = document.getElementById('confirmar-sair');
 
 const nameUpdate = document.getElementById('name-update')
 const descrevaUpdate = document.getElementById('descreva-update')
@@ -25,13 +50,11 @@ const containerNotificacao = document.getElementById('container-notificacao')
 
 
 // MANIPULACAO DO BOOTSTRAP MODAL COM O JS
-const modalCadastro = new bootstrap.Modal('#modal-cadastro')
-const modalApagar = new bootstrap.Modal('#modal-apagar')
-const modalAtualizar = new bootstrap.Modal('#modal-atualizar')
+const modalCadastro = new bootstrap.Modal('#modal-cadastro');
+const modalApagar = new bootstrap.Modal('#modal-apagar');
+const modalAtualizar = new bootstrap.Modal('#modal-atualizar');
 
-document.addEventListener('DOMContentLoaded', () => {
-    listaAnotacao.forEach((anotacoes) => addAnotacao(anotacoes))
-})
+
 
 
 // RECEBER AS INFORAMAÇÕES PREENCHIDAS PELO USUARIO 
@@ -52,6 +75,7 @@ formCadastro.addEventListener('submit', (ev) => {
 
 
     const novaAnotacao = {
+        idCriador: usuarioLogado.id,
         id: new Date().getTime(),
         name,
         descreva,
@@ -190,6 +214,20 @@ function apagar(idAnotacao) {
     showAlert('success', 'Anotação excluida!')
 }
 
+// FUNCAO PARA LOGOUT
+modalSair.addEventListener('click', () => {
+    showAlert('success', `Até breve ${usuarioLogado.userName}!`)
+
+
+    setTimeout(() => {
+        localStorage.removeItem("usuarioAtivo");
+        window.location.href = "index.html";
+    }, 3000)
+
+
+})
+
+
 // FUNÇÃO PARA MOSTRAR OS ALERTAS
 
 function showAlert(modo, mensagem) {
@@ -224,9 +262,8 @@ function showAlert(modo, mensagem) {
 
     setTimeout(() => {
         containerNotificacao.children[0].remove()
-    }, 3000)
+    }, 2000)
 
 }
-
 
 
